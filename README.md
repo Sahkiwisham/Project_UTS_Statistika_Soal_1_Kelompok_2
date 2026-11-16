@@ -2,16 +2,16 @@
 
 ---
 
-# Anggota  : 
-William Christian Kurniawan - 2503010023
-M. Sahki Wisham Fauzan - 2503010033 
-Nurul Arip Mauludin - 2503010027
-Melani Nurul Fitriani - 25030100
-Nenny Maryani - 25030100
+# Anggota :
+- William Christian Kurniawan - 2503010023
+- M. Sahki Wisham Fauzan - 2503010033
+- Nurul Arip Mauludin - 2503010027
+- Melani Nurul Fitriani - 25030100
+- Nenny Maryani - 25030100
 
 ---
 
-plikasi web interaktif, responsif, dan siap pakai untuk pengolahan data statistik deskriptif lengkap dengan visualisasi grafis menggunakan **HTML5**, **Tailwind CSS (CDN)**, **JavaScript (ES6+)**, **Plotly.js (CDN)**, dan **PapaParse (CDN)**.
+Aplikasi web interaktif, responsif, dan siap pakai untuk pengolahan data statistik deskriptif lengkap dengan visualisasi grafis menggunakan **HTML5**, **Tailwind CSS (CDN)**, **JavaScript (ES6+)**, **Plotly.js (CDN)**, dan **PapaParse (CDN)**.
 
 ---
 
