@@ -1,0 +1,117 @@
+<section class="app-card rounded-2xl p-6 sm:p-7 no-print">
+  <div class="flex flex-col md:flex-row md:items-center justify-between pb-5 border-b border-slate-800 gap-4">
+    <div>
+      <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-950 text-indigo-300 border border-indigo-700/60 mb-1.5">
+        Langkah 1
+      </div>
+      <h2 class="text-lg font-bold text-white flex items-center gap-2">
+        Pilih Sumber Data yang Ingin Dihitung
+      </h2>
+      <p class="text-xs text-slate-400 mt-0.5">Anda bisa mengetik angka secara langsung atau mengunggah berkas Excel/CSV.</p>
+    </div>
+
+    <!-- Segmented Tab Switcher -->
+    <div class="flex p-1 bg-slate-950 rounded-xl border border-slate-800 self-start md:self-auto">
+      <button id="tab-btn-manual" onclick="setInputTab('manual')" class="flex-1 py-2 px-4 rounded-lg font-semibold text-xs md:text-sm bg-indigo-600 text-white shadow-md shadow-indigo-600/30 flex items-center gap-2 transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+        Ketik Angka Sendiri
+      </button>
+      <button id="tab-btn-csv" onclick="setInputTab('csv')" class="flex-1 py-2 px-4 rounded-lg font-medium text-xs md:text-sm text-slate-400 hover:text-white flex items-center gap-2 transition-all">
+        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+        Unggah Berkas CSV
+      </button>
+    </div>
+  </div>
+
+  <!-- Panel Konten Tab -->
+  <div class="mt-6">
+    <!-- TAB A: INPUT MANUAL -->
+    <div id="panel-input-manual" class="space-y-4">
+      <div class="flex items-center justify-between">
+        <label for="manual-data-input" class="text-xs font-bold text-slate-300 uppercase tracking-wider">
+          Masukkan Deret Angka Anda:
+        </label>
+        <span id="manual-count-badge" class="text-xs px-2.5 py-0.5 rounded-full bg-slate-800 text-indigo-400 border border-slate-700 font-semibold font-mono">
+          0 angka terdeteksi
+        </span>
+      </div>
+
+      <div class="relative">
+        <textarea id="manual-data-input" rows="4" 
+          class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm font-mono text-slate-100 placeholder-slate-500 focus:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all shadow-inner"
+          placeholder="Contoh masukan: 15, 48, 52, 55, 58, 60, 61, 62, 63, 65, 66, 68, 70, 72, 75, 78, 80, 82, 85, 90, 115, 120"></textarea>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2 text-xs text-slate-400 bg-slate-950/60 p-3 rounded-xl border border-slate-800">
+        <span class="font-bold text-slate-300">💡 Tips Format Pemisah:</span>
+        <span>Anda bisa memisahkan angka dengan <strong>koma (,)</strong>, <strong>spasi</strong>, <strong>titik koma (;)</strong>, atau <strong>baris baru</strong>.</span>
+        <span class="text-slate-400 sm:ml-auto">Untuk pecahan desimal, gunakan tanda titik (contoh: <code>85.5</code>).</span>
+      </div>
+    </div>
+
+    <!-- TAB B: UPLOAD FILE CSV -->
+    <div id="panel-input-csv" class="hidden space-y-4">
+      <div id="csv-dropzone" class="border-2 border-dashed border-slate-700 hover:border-indigo-500 bg-slate-950/60 hover:bg-indigo-950/20 rounded-2xl p-6 sm:p-8 text-center cursor-pointer transition-all group">
+        <input type="file" id="csv-file-input" accept=".csv,text/csv" class="hidden">
+        <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-slate-800 group-hover:bg-indigo-600/30 flex items-center justify-center text-slate-400 group-hover:text-indigo-400 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+        </div>
+        <p class="text-sm font-bold text-slate-200">Klik di sini untuk memilih file CSV atau seret file ke area ini</p>
+        <p class="text-xs text-slate-400 mt-1">Sistem otomatis mendeteksi kolom angka secara pintar menggunakan PapaParse</p>
+      </div>
+
+      <!-- File Info Pill -->
+      <div id="csv-file-info" class="hidden flex items-center justify-between p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-xs">
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span id="csv-file-name" class="font-bold text-slate-200 font-mono">data.csv</span>
+          <span id="csv-file-size" class="text-slate-400"></span>
+        </div>
+        <button onclick="resetAll()" class="text-rose-400 hover:text-rose-300 font-semibold">Ganti File</button>
+      </div>
+
+      <!-- Column Selector Dropdown -->
+      <div id="csv-column-selector-wrapper" class="hidden p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+        <label for="csv-column-select" class="block text-xs font-bold text-slate-300">
+          Pilih Kolom Angka yang Ingin Dianalisis:
+        </label>
+        <div class="relative">
+          <select id="csv-column-select" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-slate-100 font-mono focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+          </select>
+        </div>
+        <p class="text-[11px] text-slate-400">Kolom yang memiliki banyak angka telah diberi tanda centang <code>(Kolom Angka ✓)</code> secara otomatis.</p>
+      </div>
+
+      <!-- CSV Preview Data Table (Top 3 Rows) -->
+      <div id="csv-preview-container" class="hidden space-y-2">
+        <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Pratinjau Data CSV (3 Baris Teratas):</p>
+        <div class="overflow-x-auto rounded-lg border border-slate-800 bg-slate-950/80 max-h-36">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead id="csv-preview-thead"></thead>
+            <tbody id="csv-preview-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action Buttons Toolbar -->
+  <div class="mt-6 pt-5 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3">
+    <div class="flex flex-wrap items-center gap-3">
+      <button onclick="processData()" class="px-6 py-2.5 rounded-xl font-bold text-sm bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white shadow-lg shadow-indigo-600/30 transition-all flex items-center gap-2 transform active:scale-95">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Analisis Data Sekarang
+      </button>
+
+      <button onclick="loadSampleData()" class="px-4 py-2.5 rounded-xl font-semibold text-sm bg-indigo-950/60 hover:bg-indigo-900/80 text-indigo-300 border border-indigo-700/50 transition-all flex items-center gap-2 transform active:scale-95" title="Klik ini jika ingin langsung melihat contoh tanpa mengetik">
+        <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        ✨ Coba Pakai Data Contoh
+      </button>
+    </div>
+
+    <button onclick="resetAll()" class="px-4 py-2.5 rounded-xl font-semibold text-sm text-slate-400 hover:text-white bg-slate-800/80 hover:bg-slate-750 border border-slate-700 transition-all flex items-center gap-2">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+      Hapus / Reset
+    </button>
+  </div>
+</section>

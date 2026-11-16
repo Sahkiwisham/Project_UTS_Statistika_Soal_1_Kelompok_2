@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Data Deskriptif Kelompok 2 - Aplikasi Web Statistik Deskriptif</title>
+  <meta name="description" content="Aplikasi pengolahan data statistik deskriptif tema gelap ramah pengguna dengan 14 parameter statistik, visualisasi Plotly.js, dan parser CSV.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Plotly.js & PapaParse CDN -->
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+  <!-- Modular CSS -->
+  <link rel="stylesheet" href="css/01-base.css">
+  <link rel="stylesheet" href="css/02-components.css">
+  <link rel="stylesheet" href="css/03-plugins.css">
+  <link rel="stylesheet" href="css/04-print.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-indigo-600 selection:text-white">
+
+  <!-- ============================================================== -->
+  <!-- BAGIAN 1: HEADER & NAVIGASI UTAMA (partials/section-header.html) -->
+  <!-- ============================================================== -->
+  <!-- [INCLUSIVE: partials/section-header.html] -->
+
+  <!-- ============================================================== -->
+  <!-- MAIN CONTENT CONTAINER -->
+  <!-- ============================================================== -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+    <!-- Notification Alert Banner -->
+    <div id="alert-container" class="hidden transition-all duration-300 no-print"></div>
+
+    <!-- ============================================================== -->
+    <!-- BAGIAN 2: INPUT DATA - LANGKAH 1 (partials/section-input.html) -->
+    <!-- ============================================================== -->
+    <!-- [INCLUSIVE: partials/section-input.html] -->
+
+    <!-- ============================================================== -->
+    <!-- HASIL DASHBOARD, GRAFIK & DATA VIEWER -->
+    <!-- ============================================================== -->
+    <div id="results-section" class="space-y-8">
+
+      <!-- ============================================================== -->
+      <!-- BAGIAN 3: RINGKASAN & EKSPOR (partials/section-summary.html) -->
+      <!-- ============================================================== -->
+      <!-- [INCLUSIVE: partials/section-summary.html] -->
+
+      <!-- ============================================================== -->
+      <!-- BAGIAN 4: 14 PARAMETER STATISTIK - LANGKAH 2 (partials/section-stats-cards.html) -->
+      <!-- ============================================================== -->
+      <!-- [INCLUSIVE: partials/section-stats-cards.html] -->
+
+      <!-- ============================================================== -->
+      <!-- BAGIAN 5: VISUALISASI & TABEL FREKUENSI - LANGKAH 3 (partials/section-visualization.html) -->
+      <!-- ============================================================== -->
+      <!-- [INCLUSIVE: partials/section-visualization.html] -->
+
+      <!-- ============================================================== -->
+      <!-- BAGIAN 6: DATA VIEWER TERURUT (partials/section-sorted-viewer.html) -->
+      <!-- ============================================================== -->
+      <!-- [INCLUSIVE: partials/section-sorted-viewer.html] -->
+
+    </div>
+  </main>
+
+  <!-- ============================================================== -->
+  <!-- BAGIAN 7: MODAL KAMUS RUMUS & FOOTER (partials/section-modal-footer.html) -->
+  <!-- ============================================================== -->
+  <!-- [INCLUSIVE: partials/section-modal-footer.html] -->
+
+  <!-- Modular JavaScript -->
+  <script src="js/01-state-utils.js"></script>
+  <script src="js/02-input-parser.js"></script>
+  <script src="js/03-stats-engine.js"></script>
+  <script src="js/04-render-dashboard.js"></script>
+  <script src="js/05-visualization.js"></script>
+  <script src="js/06-export-print.js"></script>
+  <script src="js/07-main-init.js"></script>
+</body>
+</html>

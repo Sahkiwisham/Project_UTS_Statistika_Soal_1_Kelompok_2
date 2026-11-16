@@ -1,0 +1,63 @@
+<!-- MODAL PANDUAN RUMUS STATISTIK -->
+<div id="formula-modal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 no-print">
+  <div class="bg-slate-900 w-full max-w-2xl max-h-[85vh] rounded-2xl border border-slate-700 shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+    <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-slate-950">
+      <h3 class="text-base font-bold text-white flex items-center gap-2">
+        <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        Kamus Rumus & Istilah Statistik (Bahasa Mudah)
+      </h3>
+      <button onclick="closeFormulaModal()" class="text-slate-400 hover:text-white p-1 rounded-lg">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="p-6 overflow-y-auto space-y-4 text-xs text-slate-300 leading-relaxed">
+      <div class="p-4 rounded-xl bg-indigo-950/40 border border-indigo-800/50 space-y-1.5">
+        <h4 class="font-bold text-indigo-300 text-sm">1. Nilai Pemusatan Data</h4>
+        <p>• <b>Mean (Rata-rata):</b> <code class="font-mono bg-slate-800 px-1.5 py-0.5 rounded border border-slate-700 text-indigo-300">x̄ = Σx / n</code>. Hasil penjumlahan semua nilai dibagi banyaknya angka.</p>
+        <p>• <b>Median (Nilai Tengah):</b> Angka yang berada tepat di tengah setelah data diurutkan dari kecil ke besar.</p>
+        <p>• <b>Modus:</b> Angka yang jumlah kemunculannya paling banyak di antara angka lainnya.</p>
+      </div>
+
+      <div class="p-4 rounded-xl bg-amber-950/40 border border-amber-800/50 space-y-1.5">
+        <h4 class="font-bold text-amber-300 text-sm">2. Sebaran & Keragaman Data</h4>
+        <p>• <b>Jangkauan (Range):</b> <code class="font-mono bg-slate-800 px-1.5 py-0.5 rounded border border-slate-700 text-amber-300">Xmax - Xmin</code>. Jarak antara angka terbesar dan angka terkecil.</p>
+        <p>• <b>Varians Sampel (s²):</b> <code class="font-mono bg-slate-800 px-1.5 py-0.5 rounded border border-slate-700 text-amber-300">Σ(xi - x̄)² / (n - 1)</code>. Mengukur seberapa lebar data menyebar dari nilai rata-rata.</p>
+        <p>• <b>Standar Deviasi (s):</b> Akar kuadrat dari varians. Merupakan jarak rata-rata simpangan data ke nilai mean dalam satuan aslinya.</p>
+      </div>
+
+      <div class="p-4 rounded-xl bg-emerald-950/40 border border-emerald-800/50 space-y-1.5">
+        <h4 class="font-bold text-emerald-300 text-sm">3. Kuartil & Deteksi Outlier (Metode Tukey 1.5 × IQR)</h4>
+        <p>• <b>Kuartil 1 (Q1) & Kuartil 3 (Q3):</b> Batas 25% data terendah dan 75% data terendah.</p>
+        <p>• <b>IQR (Interquartile Range):</b> <code class="font-mono bg-slate-800 px-1.5 py-0.5 rounded border border-slate-700 text-emerald-300">Q3 - Q1</code>. Jarak bentang 50% data di bagian tengah.</p>
+        <p>• <b>Batas Bawah Outlier:</b> <code class="font-mono bg-slate-800 px-1.5 py-0.5 rounded border border-slate-700 text-rose-300">Q1 - (1.5 × IQR)</code>. Angka lebih kecil dari ini dianggap terlalu ekstrem ke bawah.</p>
+        <p>• <b>Batas Atas Outlier:</b> <code class="font-mono bg-slate-800 px-1.5 py-0.5 rounded border border-slate-700 text-rose-300">Q3 + (1.5 × IQR)</code>. Angka lebih besar dari ini dianggap terlalu ekstrem ke atas.</p>
+      </div>
+    </div>
+
+    <div class="p-4 border-t border-slate-800 bg-slate-950 text-right">
+      <button onclick="closeFormulaModal()" class="px-5 py-2 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-500 text-white transition">
+        Saya Mengerti
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="border-t border-slate-800/80 bg-slate-950 py-6 text-center text-xs text-slate-500 no-print">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+    <p>© 2026 Kalkulator Data Deskriptif Kelompok 2. Dirancang agar mudah dipelajari dan dipresentasikan.</p>
+    <div class="flex items-center gap-3 text-slate-400 font-medium">
+      <span>HTML5</span> • <span>Tailwind CSS</span> • <span>Plotly.js</span> • <span>PapaParse</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function openFormulaModal() {
+    document.getElementById('formula-modal').classList.remove('hidden');
+  }
+  function closeFormulaModal() {
+    document.getElementById('formula-modal').classList.add('hidden');
+  }
+</script>
