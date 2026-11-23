@@ -7,7 +7,7 @@
 - M Sahki Wisham Fauzan - 2503010033
 - Nurul Arip Mauludin - 2503010027
 - Melani Nurul Fitriani - 25030100
-- Nenny Maryani - 25030100
+- Nenny Maryani - 2503010053
 
 ---
 
